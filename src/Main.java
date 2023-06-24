@@ -1,3 +1,5 @@
+import agencies.Agency;
+import agencies.AgencyFactory;
 import tickets.Executive;
 import tickets.FirstClass;
 import tickets.Popular;
@@ -22,6 +24,12 @@ public class Main {
             assert ticket != null;
 
             System.out.println(MessageFormat.format("{0}, sua viagem deu o valor de {1} reais", namePassanger, ticket.getPrice()));
+
+            Agency agency = getAgency();
+
+            System.out.println("Iniciando viagem...");
+
+            agency.init_travel();
 
             int value = 0;
 
@@ -92,5 +100,26 @@ public class Main {
         }
 
         return null;
+    }
+
+    private static Agency getAgency(){
+        try {
+            AgencyFactory agencyFactory = new AgencyFactory();
+
+            String[] arr_agencies = agencyFactory.getAgencies();
+
+            System.out.println("Escolha a agência do voo:");
+            System.out.println("1 - Gol");
+            System.out.println("2 - CVC");
+            System.out.println("3 - RIP");
+
+            int user_choice = scn.nextInt();
+            Agency agency = agencyFactory.getAgency(arr_agencies[user_choice - 1]);
+
+            return agency;
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("Općão inválida!");
+            return getAgency();
+        }
     }
 }
