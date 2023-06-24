@@ -1,0 +1,16 @@
+@startuml
+
+interface Airplane {
+  + voar(agency_name: String): void
+}
+
+class ConcreteAirplane implements Airplane{
+  + voar(agency_name: String): void
+}
+
+class ProxyAirplane implements Airplane{
+  - concreteAirplane: ConcreteAirplane
+  + voar(agency_name: String): void
+}
+
+@enduml

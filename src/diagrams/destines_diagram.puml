@@ -1,0 +1,29 @@
+@startuml
+
+interface Destine {
+  + getPrice(): double
+  + getInfo(): String
+}
+
+class Acapulco implements Destine{
+  + getPrice(): double
+  + getInfo(): String
+}
+
+class Amsterdam implements Destine{
+  + getPrice(): double
+  + getInfo(): String
+}
+
+class Dubai implements Destine{
+  + getPrice(): double
+  + getInfo(): String
+}
+
+class DestineFactory {
+  - hash_destines: Map<String, Destine>
+  + get(key: String): Destine
+  - getLocations(): String
+}
+
+@enduml

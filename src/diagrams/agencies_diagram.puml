@@ -1,0 +1,38 @@
+@startuml
+    class AgencyFactory {
+        - airplane: Airplane
+        - hash_agency: Map<String, Agency>
+        - agencies: String[]
+
+        + AgencyFactory();
+        + getAgency(String agency_name): Agency
+        + getAgencies(): String[]
+    }
+
+    class Agency{
+        - name: String
+        - description: String
+        - airplane: Airplane
+
+        + Agency(name: String, description: String, airplane: Airplane)
+        + init_travel(): void
+    }
+
+    class CVC extends Agency{
+        - description: String
+
+        + Agency(airplane: Airplane)
+    }
+
+    class Gol extends Agency{
+        - description: String
+
+        + Agency(airplane: Airplane)
+    }
+
+    class RIP extends Agency{
+        - description: String
+
+        + Agency(airplane: Airplane)
+    }
+@enduml

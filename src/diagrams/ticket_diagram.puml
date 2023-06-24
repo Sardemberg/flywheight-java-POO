@@ -1,0 +1,37 @@
+@startuml
+
+interface Ticket {
+    +getPrice(): double
+    +getNamePassanger(): String
+    +getCode(): UUID
+    +getDestine(): Destine
+}
+
+class BaseTicket implements Ticket{
+    -namePassanger: String
+    -code: UUID
+    -destine: Destine
+    +BaseTicket(namePassanger: String, location: String)
+    +getPrice(): double
+    +getNamePassanger(): String
+    +getCode(): UUID
+    +getDestine(): Destine
+}
+
+class Executive extends BaseTicket{
+    +Executive(namePassanger: String, location: String)
+    +getPrice(): double
+}
+
+class FirstClass extends BaseTicket {
+    +FirstClass(namePassanger: String, location: String)
+    +getPrice(): double
+}
+
+class Popular extends BaseTicket{
+    +Popular(namePassanger: String, location: String)
+    +getPrice(): double
+}
+
+
+@enduml
